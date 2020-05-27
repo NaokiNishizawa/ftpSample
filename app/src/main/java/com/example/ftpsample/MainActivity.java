@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mReceiveStopBtn;
     private Button mSendBtn;
     private Button mSendStopBtn;
-    private FtpFileUtil ftpFileUtil;
+    private FtpFileManager mFtpFileManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        ftpFileUtil = FtpFileUtil.getInstance();
+        mFtpFileManager = FtpFileManager.getInstance();
 
         mReceiveBtn = findViewById(R.id.receive_btn);
         mReceiveStopBtn = findViewById(R.id.receive_stop_btn);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 受信開始
-                ftpFileUtil.ReceiveStart(getApplicationContext());
+                mFtpFileManager.ReceiveStart(getApplicationContext());
             }
         });
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //受信終了
-                ftpFileUtil.ReceiveStop();
+                mFtpFileManager.ReceiveStop();
             }
         });
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 送信処理
-                ftpFileUtil.SendStart(getApplicationContext());
+                mFtpFileManager.SendStart(getApplicationContext());
             }
         });
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 送信終了処理
-                ftpFileUtil.SendStop();
+                mFtpFileManager.SendStop();
             }
         });
     }
