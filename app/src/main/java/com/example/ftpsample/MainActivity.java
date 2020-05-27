@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 初期化
         init();
     }
 
@@ -49,14 +50,16 @@ public class MainActivity extends AppCompatActivity {
         mSendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO 送信処理
+                // 送信処理
+                ftpFileUtil.SendStart(getApplicationContext());
             }
         });
 
         mSendStopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO 送信終了処理
+                // 送信終了処理
+                ftpFileUtil.SendStop();
             }
         });
     }
